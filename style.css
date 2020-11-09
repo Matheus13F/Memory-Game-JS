@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    background-color: #414141 ;
+}
+
+.memory-game{
+    height: 640px;
+    width: 680px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.memory-game .card{
+    height: calc(33.333% - 10px);
+    width: calc(25% - 10px);
+    margin: 5px;
+    position:relative;
+    box-shadow: 1px 1px 1px #000 ;
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d; /*dont let the element achatado on the plan*/
+    transition: transform .9s;
+}
+
+.memory-game .card:active{
+    transform: scale(0.97);
+    transition: transform.0.3s;
+}
+
+.memory-game .card .card-front,
+.memory-game .card .card-back{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: #fff;
+    backface-visibility: hidden; /*property que retira o verso do element*/
+}
+
+.memory-game .card .card-front{
+    transform: rotateY(180deg);
+}
+
+/*flip card animation*/
+
+.card.flip{
+    transform: rotateY(180deg);
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+    background-color: #000;
+}
